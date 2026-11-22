@@ -10,36 +10,38 @@
 </div>
 
 ---
+## 🐳 `~/docker-compose.yml`
 
-## 🖥️ `~/about-me.java`
+```yaml
+version: "3.9"
 
-```java
-public class SudarshanTakate {
+services:
+  sudarshan:
+    image: java-devops-engineer:latest
+    container_name: sudarshan-takate
+    environment:
+      - ROLE=Java DevOps Engineer
+      - COMPANY=Profectum Systems Pvt. Ltd.
+      - LOCATION=Pune, Maharashtra, India
+      - MINDSET=clean-code,problem-solving,never-stop-learning
+    depends_on:
+      - java
+      - spring-boot
+      - docker
+      - mysql
+    ports:
+      - "open-to:opportunities"
+    restart: always
 
-    private final String role     = "Java DevOps Engineer @ Profectum Systems Pvt. Ltd.";
-    private final String location = "Nashik, Maharashtra, India";
-
-    private final String[] stack = {
-        "Java", "Spring Boot", "Hibernate", "MySQL", "Docker", "CI/CD"
-    };
-
-    private final String[] currentlyLearning = {
-        "Kubernetes", "Apache Kafka", "Spring AI", "Cloud Architecture"
-    };
-
-    public void passion() {
-        build("REST APIs");
-        build("Microservices");
-        automate("CI/CD pipelines");
-        write("clean, maintainable code");
-    }
-
-    public String motto() {
-        return "while (alive) { learn(); build(); deploy(); repeat(); }";
-    }
-}
+  learning:
+    image: next-skills:beta
+    environment:
+      - KUBERNETES=in-progress
+      - KAFKA=in-progress
+      - SPRING_AI=in-progress
+      - CLOUD=in-progress
+    restart: unless-stopped
 ```
-
 ---
 
 ## 🧠 `$ cat mission.txt`
